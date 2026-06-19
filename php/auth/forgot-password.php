@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $user = dbFetchOne("SELECT security_answer FROM users WHERE id = ?", [$userId], 'i');
 
-        if (!$user || !password_verify($answer, $user['security_answer'])) {
+        if (!$user || $answer !== $user['security_answer']) {
             redirect(SITE_URL . '/forgot-password.php?step=2', 'Incorrect security answer.', 'error');
         }
 
@@ -45,8 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             redirect(SITE_URL . '/forgot-password.php?step=2', 'Passwords do not match.', 'error');
         }
 
-        $hashed = password_hash($newPassword, PASSWORD_DEFAULT);
-        dbExecute("UPDATE users SET password = ? WHERE id = ?", [$hashed, $userId], 'si');
+        dbExecute("UPDATE users SET password = ? WHERE id = ?", [$newPassword, $userId], 'si');
 
         unset($_SESSION['reset_user_id']);
         unset($_SESSION['reset_question']);

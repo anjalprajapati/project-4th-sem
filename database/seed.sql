@@ -8,22 +8,22 @@ USE street_dog_db;
 -- Admin User (password: Admin@123)
 -- ============================================================
 INSERT INTO users (name, email, password, role) VALUES
-('System Admin', 'admin@streetdogs.org', '$2y$10$8K1p/a0dL1LXMIgbCe2fPuQr5v3gKj4h5rN6tMwP7yXo8kZqE9bWu', 'admin');
+('System Admin', 'admin@streetdogs.org', 'Admin@123', 'admin');
 
 -- ============================================================
 -- Sample Donors
 -- ============================================================
 INSERT INTO users (name, email, password, role) VALUES
-('Rahul Sharma', 'rahul@example.com', '$2y$10$8K1p/a0dL1LXMIgbCe2fPuQr5v3gKj4h5rN6tMwP7yXo8kZqE9bWu', 'donor'),
-('Priya Patel', 'priya@example.com', '$2y$10$8K1p/a0dL1LXMIgbCe2fPuQr5v3gKj4h5rN6tMwP7yXo8kZqE9bWu', 'donor'),
-('Amit Kumar', 'amit@example.com', '$2y$10$8K1p/a0dL1LXMIgbCe2fPuQr5v3gKj4h5rN6tMwP7yXo8kZqE9bWu', 'donor');
+('Rahul Sharma', 'rahul@example.com', 'Admin@123', 'donor'),
+('Priya Patel', 'priya@example.com', 'Admin@123', 'donor'),
+('Amit Kumar', 'amit@example.com', 'Admin@123', 'donor');
 
 -- ============================================================
 -- Sample Volunteers
 -- ============================================================
 INSERT INTO users (name, email, password, role) VALUES
-('Sneha Reddy', 'sneha@example.com', '$2y$10$8K1p/a0dL1LXMIgbCe2fPuQr5v3gKj4h5rN6tMwP7yXo8kZqE9bWu', 'volunteer'),
-('Vikram Singh', 'vikram@example.com', '$2y$10$8K1p/a0dL1LXMIgbCe2fPuQr5v3gKj4h5rN6tMwP7yXo8kZqE9bWu', 'volunteer');
+('Sneha Reddy', 'sneha@example.com', 'Admin@123', 'volunteer'),
+('Vikram Singh', 'vikram@example.com', 'Admin@123', 'volunteer');
 
 INSERT INTO volunteers (user_id, phone, availability) VALUES
 (5, '9876543210', 'available'),

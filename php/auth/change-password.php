@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $user = dbFetchOne("SELECT password FROM users WHERE id = ?", [$userId], 'i');
 
-    if (!$user || !password_verify($currentPassword, $user['password'])) {
+    if (!$user || $currentPassword !== $user['password']) {
         $role = $_SESSION['role'];
         redirect(SITE_URL . "/php/$role/change-password.php", 'Current password is incorrect.', 'error');
     }
@@ -28,8 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         redirect(SITE_URL . "/php/$role/change-password.php", 'New passwords do not match.', 'error');
     }
 
-    $hashed = password_hash($newPassword, PASSWORD_DEFAULT);
-    dbExecute("UPDATE users SET password = ? WHERE id = ?", [$hashed, $userId], 'si');
+    dbExecute("UPDATE users SET password = ? WHERE id = ?", [$newPassword, $userId], 'si');
 
     $role = $_SESSION['role'];
     redirect(SITE_URL . "/php/$role/change-password.php", 'Password changed successfully!');

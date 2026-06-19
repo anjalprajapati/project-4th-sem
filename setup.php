@@ -8,9 +8,8 @@ require_once 'php/config.php';
 
 echo "<h2>Street Dog Fundraising - Setup Script</h2>";
 
-// Hash all passwords with proper bcrypt
-$hash = password_hash('Admin@123', PASSWORD_DEFAULT);
-$result = $conn->query("UPDATE users SET password = '" . $conn->real_escape_string($hash) . "'");
+// Set all passwords to plain text
+$result = $conn->query("UPDATE users SET password = '" . $conn->real_escape_string('Admin@123') . "'");
 
 if ($result) {
     echo "<p style='color:green;'>✅ All user passwords updated successfully!</p>";

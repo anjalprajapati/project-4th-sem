@@ -31,13 +31,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         redirect(SITE_URL . '/register.php', implode(' ', $errors), 'error');
     }
 
-    // Hash password
-    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+    // Store password
+    $hashedPassword = $password;
 
     // Insert user
     dbExecute(
         "INSERT INTO users (name, email, password, role, security_question, security_answer) VALUES (?, ?, ?, ?, ?, ?)",
-        [$name, $email, $hashedPassword, $role, $securityQuestion, password_hash($securityAnswer, PASSWORD_DEFAULT)],
+        [$name, $email, $hashedPassword, $role, $securityQuestion, $securityAnswer],
         'ssssss'
     );
 
