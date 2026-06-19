@@ -1,0 +1,287 @@
+/* ============================================================
+   Form Styles
+   ============================================================ */
+
+/* ---- Form Container ---- */
+.form-container {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 32px;
+    box-shadow: var(--shadow);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-container.wide {
+    max-width: 800px;
+}
+
+.form-container h2 {
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--border);
+}
+
+/* ---- Form Group ---- */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    font-size: 0.92rem;
+    color: var(--text-primary);
+}
+
+.form-group label .required {
+    color: var(--danger);
+    margin-left: 2px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 0.95rem;
+    font-family: var(--font);
+    color: var(--text-primary);
+    background: var(--white);
+    transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(230,126,34,0.1);
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.form-group input[type="file"] {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.form-group input[type="file"]::file-selector-button {
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: none;
+    background: var(--primary);
+    color: var(--white);
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    margin-right: 12px;
+    transition: var(--transition);
+}
+
+.form-group input[type="file"]::file-selector-button:hover {
+    background: var(--primary-dark);
+}
+
+/* ---- Form Row (2 column) ---- */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+@media (max-width: 600px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ---- Form Error ---- */
+.form-error {
+    color: var(--danger);
+    font-size: 0.82rem;
+    margin-top: 4px;
+    display: none;
+}
+
+.form-group.error input,
+.form-group.error select,
+.form-group.error textarea {
+    border-color: var(--danger);
+}
+
+.form-group.error .form-error {
+    display: block;
+}
+
+/* ---- Form Success ---- */
+.form-group.success input,
+.form-group.success select,
+.form-group.success textarea {
+    border-color: var(--success);
+}
+
+/* ---- Form Actions ---- */
+.form-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+}
+
+/* ---- Checkbox / Radio ---- */
+.form-check {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.form-check input[type="checkbox"],
+.form-check input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--primary);
+    cursor: pointer;
+}
+
+.form-check label {
+    font-weight: 400;
+    font-size: 0.92rem;
+    cursor: pointer;
+    margin: 0;
+}
+
+/* ---- Form Help Text ---- */
+.form-help {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    margin-top: 4px;
+}
+
+/* ---- Auth Pages (Login/Register) ---- */
+.auth-page {
+    min-height: calc(100vh - 70px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.auth-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 40px;
+    width: 100%;
+    max-width: 440px;
+    box-shadow: var(--shadow-lg);
+}
+
+.auth-card .logo {
+    justify-content: center;
+    margin-bottom: 8px;
+}
+
+.auth-card h2 {
+    text-align: center;
+    margin-bottom: 6px;
+}
+
+.auth-card .subtitle {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+    margin-bottom: 28px;
+}
+
+.auth-links {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+
+.auth-links a {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+/* ---- Image Preview ---- */
+.img-preview {
+    width: 100%;
+    max-width: 300px;
+    height: 180px;
+    border: 2px dashed var(--border);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-top: 8px;
+    background: var(--bg-light);
+}
+
+.img-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ---- Receipt ---- */
+.receipt {
+    background: var(--white);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    padding: 40px;
+    max-width: 600px;
+    margin: 30px auto;
+}
+
+.receipt-header {
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 2px dashed var(--border);
+    margin-bottom: 24px;
+}
+
+.receipt-header h2 {
+    color: var(--primary);
+    margin-bottom: 4px;
+}
+
+.receipt-body .receipt-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.receipt-body .receipt-row:last-child {
+    border-bottom: none;
+}
+
+.receipt-body .receipt-row .label {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.receipt-body .receipt-row .value {
+    color: var(--text-secondary);
+}
+
+.receipt-footer {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 2px dashed var(--border);
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
